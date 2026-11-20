@@ -17,3 +17,6 @@ dist/
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Local screen recordings (never published)
+records/
