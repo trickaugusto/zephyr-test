@@ -1,0 +1,48 @@
+/* Brand tokens. Scoped to the widget root so they never leak into a host page. */
+.vw,
+.vw-page {
+  --ft-white: #faf8f4;
+  --ft-dark: #160900;
+  --ft-yellow: #fedd00;
+  --ft-yellow-hover: #e8c900;
+  --surface: #ffffff;
+  --surface-sunk: #f3efe7;
+  --fg-muted: #5a4a3e;
+  --fg-subtle: #8a7a6e;
+  --border: #e6ded0;
+  --border-dark: rgba(250, 248, 244, 0.12);
+
+  --shadow-md: 0 4px 12px rgba(22, 9, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(22, 9, 0, 0.12);
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --radius-banner: 12px;
+
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-read: 'Literata', Georgia, serif;
+  --font-accent: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Inter', -apple-system, system-ui, sans-serif;
+
+  /* Semantic roles, light theme (default). */
+  --vw-bg: var(--surface);
+  --vw-fg: var(--ft-dark);
+  --vw-fg-muted: var(--fg-muted);
+  --vw-fg-subtle: var(--fg-subtle);
+  --vw-line: var(--border);
+  --vw-border: 1px solid var(--border);
+  --vw-hover: var(--surface-sunk);
+  --vw-shadow: var(--shadow-md);
+  --vw-secondary-border: var(--ft-dark);
+}
+
+.vw[data-theme='dark'] {
+  --vw-bg: var(--ft-dark);
+  --vw-fg: var(--ft-white);
+  --vw-fg-muted: rgba(250, 248, 244, 0.7);
+  --vw-fg-subtle: rgba(250, 248, 244, 0.55);
+  --vw-line: var(--border-dark);
+  --vw-border: 1px solid transparent;
+  --vw-hover: rgba(250, 248, 244, 0.08);
+  --vw-shadow: var(--shadow-lg);
+  --vw-secondary-border: var(--ft-white);
+}
