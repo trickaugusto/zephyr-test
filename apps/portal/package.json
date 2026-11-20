@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rsbuild build",
     "dev": "ZE_DISABLED=true rsbuild dev",
-    "preview": "rsbuild preview"
+    "preview": "rsbuild preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -17,9 +18,14 @@
     "@module-federation/rsbuild-plugin": "^0.21.2",
     "@rsbuild/core": "^1.6.0",
     "@rsbuild/plugin-react": "^1.4.1",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.13",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "jsdom": "^31.0.1",
     "typescript": "^5.9.3",
+    "vitest": "^5.1.1",
     "zephyr-rsbuild-plugin": "^1.8.0"
   },
   "zephyr:dependencies": {
