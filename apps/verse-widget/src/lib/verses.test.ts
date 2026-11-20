@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { addDays, dayNumber, getVerseForDate, normalizeLocale } from './getVerse';
-import { REFERENCE_IDS } from './references';
+import { addDays, dayNumber, getVerseForDate, normalizeLocale } from './verses';
+import { REFERENCE_IDS } from '../data/references';
 
 describe('getVerseForDate', () => {
   it('returns the same verse for the same local date', () => {

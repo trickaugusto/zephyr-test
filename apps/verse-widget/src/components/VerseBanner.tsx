@@ -1,4 +1,4 @@
-import { splitReference, useVerseView, type WidgetProps } from './useVerseView';
+import { splitReference, useVerseView, type WidgetProps } from '../hooks/useVerseView';
 
 export default function VerseBanner(props: WidgetProps) {
   const v = useVerseView(props);

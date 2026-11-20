@@ -44,7 +44,7 @@ export default defineConfig({
       exposes: {
         './VerseCard': './src/components/VerseCard.tsx',
         './VerseBanner': './src/components/VerseBanner.tsx',
-        './meta': './src/meta.ts',
+        './meta': './src/lib/meta.ts',
       },
       shared: {
         react: { singleton: true },

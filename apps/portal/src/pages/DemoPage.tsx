@@ -2,7 +2,7 @@ import { lazy, useEffect, useState } from 'react';
 import LoadedRemotePanel, { type RemoteMeta } from '../components/LoadedRemotePanel';
 import RemoteSlot from '../components/RemoteSlot';
 import type { Locale, Theme } from '../components/TopBar';
-import { getRemoteEntryUrl } from '../remote/runtimeInfo';
+import { getRemoteEntryUrl } from '../lib/runtimeInfo';
 
 const VerseCard = lazy(() => import('verse_widget/VerseCard'));
 const VerseBanner = lazy(() => import('verse_widget/VerseBanner'));

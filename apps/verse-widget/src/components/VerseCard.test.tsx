@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { getEnvBadge } from '../env';
-import { getVerseForDate } from '../verses/getVerse';
+import { getEnvBadge } from '../lib/env';
+import { getVerseForDate } from '../lib/verses';
 import VerseCard from './VerseCard';
 
-vi.mock('../env', () => ({ getEnvBadge: vi.fn(() => null) }));
+vi.mock('../lib/env', () => ({ getEnvBadge: vi.fn(() => null) }));
 
 const refText = (container: HTMLElement) => container.querySelector('.vw-ref')?.textContent;
 

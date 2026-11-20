@@ -1,4 +1,4 @@
-import hostMeta, { type HostMeta } from '../hostMeta';
+import hostMeta, { type HostMeta } from '../lib/hostMeta';
 
 export type RemoteMeta = {
   name: string;
@@ -44,7 +44,7 @@ export default function LoadedRemotePanel({ meta, url, host = hostMeta }: Props)
       <h3>{meta?.name ?? 'verse-widget'}</h3>
       {meta ? (
         <>
-          <Row k="Build" v={meta.build ?? 'local'} />
+          <Row k="CI run" v={meta.build ?? 'local'} />
           <Row k="Commit" v={`${meta.commit} · “${meta.commitSubject}”`} />
           <Row k="Published" v={formatPublished(meta.builtAt)} />
         </>

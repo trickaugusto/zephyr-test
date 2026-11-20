@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { getVerseForDate } from '../verses/getVerse';
+import { getVerseForDate } from '../lib/verses';
 import VerseBanner from './VerseBanner';
 
-vi.mock('../env', () => ({ getEnvBadge: vi.fn(() => null) }));
+vi.mock('../lib/env', () => ({ getEnvBadge: vi.fn(() => null) }));
 
 describe('VerseBanner', () => {
   it('shows the reference and a secondary Share button', () => {

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { getEnvBadge } from '../env';
-import { formatDay, t } from '../i18n';
+import { getEnvBadge } from '../lib/env';
+import { formatDay, t } from '../lib/i18n';
 import type { Locale, Theme } from '../types';
-import { addDays, getVerseForDate, normalizeLocale } from '../verses/getVerse';
+import { addDays, getVerseForDate, normalizeLocale } from '../lib/verses';
 import { useShare } from '../hooks/useShare';
 import '../styles/tokens.css';
 import '../styles/widget.css';

@@ -1,7 +1,7 @@
 import VerseBanner from './components/VerseBanner';
 import VerseCard from './components/VerseCard';
-import { getEnvBadge } from './env';
-import meta from './meta';
+import { getEnvBadge } from './lib/env';
+import meta from './lib/meta';
 import './styles/tokens.css';
 import './styles/widget.css';
 

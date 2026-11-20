@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon, ShareIcon } from './Icons';
-import { splitReference, useVerseView, type WidgetProps } from './useVerseView';
+import { splitReference, useVerseView, type WidgetProps } from '../hooks/useVerseView';
 
 export default function VerseCard(props: WidgetProps) {
   const v = useVerseView(props);

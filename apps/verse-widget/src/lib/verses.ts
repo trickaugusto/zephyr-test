@@ -1,7 +1,7 @@
 import type { Locale, Verse } from '../types';
-import en from './en.json';
-import ptBR from './pt-BR.json';
-import { REFERENCE_IDS } from './references';
+import en from '../data/en.json';
+import ptBR from '../data/pt-BR.json';
+import { REFERENCE_IDS } from '../data/references';
 
 type VerseTable = Record<string, { reference: string; text: string }>;
 
