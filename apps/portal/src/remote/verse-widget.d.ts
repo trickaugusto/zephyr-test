@@ -26,6 +26,8 @@ declare module 'verse_widget/meta' {
     commitSubject: string;
     /** ISO 8601 timestamp */
     builtAt: string;
+    /** CI run number such as `#12`; missing on local or older builds. */
+    build?: string;
   };
   export default meta;
 }

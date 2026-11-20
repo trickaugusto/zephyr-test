@@ -5,6 +5,8 @@ export interface WidgetMeta {
   commitSubject: string;
   /** ISO timestamp of the build. */
   builtAt: string;
+  /** CI run number such as `#12`; undefined on local builds. */
+  build?: string;
 }
 
 // Replaced at build time through `source.define` (see rsbuild.config.ts).

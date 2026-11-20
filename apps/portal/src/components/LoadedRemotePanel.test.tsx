@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import pkg from '../../package.json';
 import LoadedRemotePanel, { environmentFromUrl } from './LoadedRemotePanel';
 
 const meta = {
@@ -9,19 +8,29 @@ const meta = {
   commit: 'a1b2c3d',
   commitSubject: 'x',
   builtAt: '2026-11-20T14:32:00Z',
+  build: '#7',
 };
 
+const host = { commit: 'f00ba12', builtAt: '2026-11-20T10:00:00Z', build: '#4' };
+
 describe('LoadedRemotePanel', () => {
-  it('shows remote version, commit, url and the host version', () => {
-    render(<LoadedRemotePanel meta={meta} url="https://example/remoteEntry.js" />);
-    expect(screen.getByText('1.0.3')).toBeInTheDocument();
+  it('shows remote build, commit and url, and the host build and commit', () => {
+    render(<LoadedRemotePanel meta={meta} url="https://example/remoteEntry.js" host={host} />);
+    expect(screen.getByText('#7')).toBeInTheDocument();
     expect(screen.getByText(/a1b2c3d/)).toBeInTheDocument();
     expect(screen.getByText('https://example/remoteEntry.js')).toBeInTheDocument();
-    expect(screen.getByText(pkg.version)).toBeInTheDocument();
+    expect(screen.getByText(/#4 · f00ba12/)).toBeInTheDocument();
+    expect(screen.queryByText('1.0.3')).not.toBeInTheDocument();
+  });
+
+  it('labels a remote without a build number (older remotes) as local', () => {
+    const { build: _omit, ...older } = meta;
+    render(<LoadedRemotePanel meta={older} url="https://example/remoteEntry.js" host={host} />);
+    expect(screen.getByText('local')).toBeInTheDocument();
   });
 
   it('shows placeholders when the remote metadata is unavailable', () => {
-    render(<LoadedRemotePanel meta={undefined} url={undefined} />);
+    render(<LoadedRemotePanel meta={undefined} url={undefined} host={host} />);
     expect(screen.getByText(/metadata unavailable/i)).toBeInTheDocument();
   });
 });

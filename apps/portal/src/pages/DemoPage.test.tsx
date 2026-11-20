@@ -8,7 +8,7 @@ vi.mock('verse_widget/VerseCard', () => ({
 }));
 vi.mock('verse_widget/VerseBanner', () => ({ default: () => <div>banner</div> }));
 vi.mock('verse_widget/meta', () => ({
-  default: { name: 'verse-widget', version: '2.0.0', commit: 'abc1234', commitSubject: 'tweak', builtAt: '2026-11-20T14:32:00Z' },
+  default: { name: 'verse-widget', version: '2.0.0', commit: 'abc1234', commitSubject: 'tweak', builtAt: '2026-11-20T14:32:00Z', build: '#9' },
 }));
 
 import App from '../App';
@@ -17,7 +17,7 @@ describe('App', () => {
   it('renders remote pieces and metadata, and passes theme/locale props', async () => {
     render(<App />);
     expect(await screen.findByText('card light en')).toBeInTheDocument();
-    expect(await screen.findByText('2.0.0')).toBeInTheDocument();
+    expect(await screen.findByText('#9')).toBeInTheDocument();
     screen.getByRole('button', { name: 'Dark' }).click();
     screen.getByRole('button', { name: 'PT' }).click();
     expect(await screen.findByText('card dark pt-BR')).toBeInTheDocument();

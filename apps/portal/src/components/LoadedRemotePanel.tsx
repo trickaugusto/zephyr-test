@@ -1,4 +1,4 @@
-import pkg from '../../package.json';
+import hostMeta, { type HostMeta } from '../hostMeta';
 
 export type RemoteMeta = {
   name: string;
@@ -6,6 +6,7 @@ export type RemoteMeta = {
   commit: string;
   commitSubject: string;
   builtAt: string;
+  build?: string;
 };
 
 /**
@@ -33,9 +34,9 @@ function formatPublished(iso: string): string {
   return date.toLocaleString('en', { dateStyle: 'medium', timeStyle: 'short' });
 }
 
-type Props = { meta: RemoteMeta | undefined; url: string | undefined };
+type Props = { meta: RemoteMeta | undefined; url: string | undefined; host?: HostMeta };
 
-export default function LoadedRemotePanel({ meta, url }: Props) {
+export default function LoadedRemotePanel({ meta, url, host = hostMeta }: Props) {
   const environment = environmentFromUrl(url);
   return (
     <aside className="panel" aria-label="Loaded remote">
@@ -43,7 +44,7 @@ export default function LoadedRemotePanel({ meta, url }: Props) {
       <h3>{meta?.name ?? 'verse-widget'}</h3>
       {meta ? (
         <>
-          <Row k="Version" v={meta.version} />
+          <Row k="Build" v={meta.build ?? 'local'} />
           <Row k="Commit" v={`${meta.commit} · “${meta.commitSubject}”`} />
           <Row k="Published" v={formatPublished(meta.builtAt)} />
         </>
@@ -55,7 +56,7 @@ export default function LoadedRemotePanel({ meta, url }: Props) {
         k="Environment"
         v={environment ? <span className="pill">{environment}</span> : 'unknown'}
       />
-      <Row k="Host" v={pkg.version} />
+      <Row k="Host" v={`${host.build} · ${host.commit} · ${formatPublished(host.builtAt)}`} />
       <p className="note">
         Publishing only the remote changes the remote rows after a reload. The
         host row stays the same.

@@ -21,6 +21,8 @@ const widgetMeta = {
   commit: git('rev-parse --short HEAD', 'unknown'),
   commitSubject: git('log -1 --format=%s', ''),
   builtAt: new Date().toISOString(),
+  // GitHub Actions run number; absent on local builds.
+  build: process.env.GITHUB_RUN_NUMBER ? `#${process.env.GITHUB_RUN_NUMBER}` : undefined,
 };
 
 export default defineConfig({
