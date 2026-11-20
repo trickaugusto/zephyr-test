@@ -1,0 +1,18 @@
+{
+  "name": "zephyr-test",
+  "version": "1.0.0",
+  "description": "A verse-of-the-day micro-frontend (Module Federation) deployed with Zephyr Cloud",
+  "private": true,
+  "packageManager": "pnpm@12.21.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "pnpm build:widget && pnpm build:portal",
+    "build:widget": "pnpm --filter=verse-widget build",
+    "build:portal": "pnpm --filter=portal build",
+    "dev": "pnpm --parallel --filter=verse-widget --filter=portal dev",
+    "test": "pnpm -r --if-present test"
+  },
+  "license": "MIT"
+}
