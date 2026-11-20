@@ -38,7 +38,7 @@ button:focus-visible { outline: 2px solid var(--ft-yellow); outline-offset: 2px;
 .seg button { border: 0; background: transparent; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--ft-dark); }
 .seg button.on { background: var(--ft-dark); color: var(--ft-white); }
 
-.wrap { padding: 32px; display: grid; grid-template-columns: 1fr 340px; gap: 32px; }
+.wrap { padding: 32px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; }
 @media (max-width: 960px) { .wrap { grid-template-columns: 1fr; } }
 .overline { font-weight: 600; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
 .headline { font-family: var(--display); font-weight: 900; font-size: 40px; letter-spacing: -0.02em; line-height: 1.05; margin: 8px 0; }
