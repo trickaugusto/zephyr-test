@@ -54,7 +54,7 @@ button:focus-visible { outline: 2px solid var(--ft-yellow); outline-offset: 2px;
 
 .panel { background: var(--ft-dark); color: var(--ft-white); border-radius: var(--radius-card); padding: 22px; font-size: 13px; height: max-content; }
 .panel .overline { color: rgba(250, 248, 244, 0.6); }
-.panel h3 { font-family: var(--display); font-weight: 800; font-size: 18px; margin: 6px 0 14px; }
+.panel h2 { font-family: var(--display); font-weight: 800; font-size: 18px; margin: 6px 0 14px; }
 .kv { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; padding: 12px 0; border-top: 1px solid var(--border-dark); }
 .kv:last-of-type { border-bottom: 1px solid var(--border-dark); }
 .kv .k { color: rgba(250, 248, 244, 0.55); }

@@ -104,6 +104,7 @@ apps/
       lib/               verse selection, i18n, env badge, build meta
       data/              references and verse text (en, pt-BR)
       styles/            design tokens and widget styles
+      types/             shared types and build-time globals
       App.tsx            standalone page, shown when the widget URL is opened directly
   portal/                host
     rsbuild.config.ts    Module Federation (remotes) + withZephyr()
@@ -125,9 +126,10 @@ corepack enable pnpm
 pnpm install
 pnpm dev     # widget on :3001, portal on :3000 (Zephyr disabled in dev)
 pnpm test
+ZE_DISABLED=true pnpm build   # production build without deploying
 ```
 
-`pnpm dev` runs with `ZE_DISABLED=true`, so local development never publishes and needs no login.
+`pnpm dev` runs with `ZE_DISABLED=true`, so local development never publishes and needs no login. A plain `pnpm build` deploys (see below).
 
 ## Deploy
 
@@ -142,7 +144,7 @@ Each build prints its version URL. The first run must be in an interactive termi
 
 **From CI** (`.github/workflows/deploy.yml`), on every push to `main`:
 
-- `dorny/paths-filter` checks which app changed. Only changed apps are rebuilt.
+- `dorny/paths-filter` checks which app changed. Only changed apps are tested and rebuilt.
 - The portal job waits for the widget job (it resolves the widget at build time), and still runs when the widget was skipped.
 - Auth is a Zephyr **CI token** (Settings → Tokens → CI Tokens), stored as the repo secret `ZEPHYR_CI_TOKEN` and passed to the build as `ZE_CI_TOKEN`. `ZE_FAIL_BUILD=true` makes a Zephyr failure fail the job instead of silently skipping the deploy.
 - `fetch-depth: 0`, since Zephyr reads git metadata (branch, commit, repo, org) to identify the application.
@@ -217,5 +219,5 @@ Not used: the [Zephyr API MCP](https://docs.zephyr-cloud.io/tools/api-mcp). Tags
 
 - Code: MIT, see [LICENSE](LICENSE).
 - English text: [World English Bible](https://ebible.org/engwebp/), public domain.
-- Portuguese text: [Bíblia Livre](https://ebible.org/porbr2018/), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR). Attribution is shown in the widget.
+- Portuguese text: [Bíblia Livre](https://ebible.org/porbr2018/), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR). Attribution is shown in both the card and the banner.
 - Visual identity: adapted, with permission, from a Bible-reading app the author works on. No logos are included.

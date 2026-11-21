@@ -20,6 +20,10 @@ const hostMeta = {
 };
 
 export default defineConfig({
+  html: {
+    title: 'Verse of the day widget',
+    template: './index.html',
+  },
   source: {
     define: {
       __HOST_META__: JSON.stringify(hostMeta),

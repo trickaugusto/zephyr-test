@@ -37,9 +37,9 @@ describe('LoadedRemotePanel', () => {
 
 describe('environmentFromUrl', () => {
   it.each([
-    ['https://production-verse-widget-zephyr-test-trickaugusto-ze.zephyr-cloud.io/remoteEntry.js', 'production'],
-    ['https://staging-verse-widget-zephyr-test-trickaugusto-ze.zephyr-cloud.io/remoteEntry.js', 'staging'],
-    ['https://t-main-verse-widget-zephyr-test-trickaugusto-ze.zephyr-cloud.io/remoteEntry.js', 't-main'],
+    ['https://production-verse-widget-zephyr-test-trickaugusto-ze.zephyrcloud.app/remoteEntry.js', 'production'],
+    ['https://staging-verse-widget-zephyr-test-trickaugusto-ze.zephyrcloud.app/remoteEntry.js', 'staging'],
+    ['https://t-main-verse-widget-zephyr-test-trickaugusto-ze.zephyrcloud.app/remoteEntry.js', 't-main'],
     ['http://localhost:3001/remoteEntry.js', 'local'],
     ['not a url', undefined],
     [undefined, undefined],

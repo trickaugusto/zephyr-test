@@ -41,11 +41,11 @@ export default function LoadedRemotePanel({ meta, url, host = hostMeta }: Props)
   return (
     <aside className="panel" aria-label="Loaded remote">
       <div className="overline">Loaded remote</div>
-      <h3>{meta?.name ?? 'verse-widget'}</h3>
+      <h2>{meta?.name ?? 'verse-widget'}</h2>
       {meta ? (
         <>
           <Row k="CI run" v={meta.build ?? 'local'} />
-          <Row k="Commit" v={`${meta.commit} · “${meta.commitSubject}”`} />
+          <Row k="Commit" v={meta.commitSubject ? `${meta.commit} · “${meta.commitSubject}”` : meta.commit} />
           <Row k="Published" v={formatPublished(meta.builtAt)} />
         </>
       ) : (

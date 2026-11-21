@@ -26,6 +26,10 @@ const widgetMeta = {
 };
 
 export default defineConfig({
+  html: {
+    title: 'verse-widget',
+    template: './index.html',
+  },
   source: {
     define: {
       __WIDGET_META__: JSON.stringify(widgetMeta),
