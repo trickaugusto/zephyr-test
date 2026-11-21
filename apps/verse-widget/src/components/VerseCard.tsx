@@ -1,3 +1,4 @@
+import Attribution from './Attribution';
 import { ChevronLeftIcon, ChevronRightIcon, ShareIcon } from './Icons';
 import { splitReference, useVerseView, type WidgetProps } from '../hooks/useVerseView';
 
@@ -16,17 +17,11 @@ export default function VerseCard(props: WidgetProps) {
       <div className="vw-ref">
         {book} <em>{numbers}</em>
       </div>
-      <div className="vw-translation">
-        {v.locale === 'pt-BR' && v.copy.licenseHref ? (
-          <>
-            {v.verse.translation} ·{' '}
-            <a href={v.copy.licenseHref} target="_blank" rel="noopener noreferrer">
-              CC BY 4.0
-            </a>
-          </>
-        ) : (
-          v.verse.translation
-        )}
+      <div>
+        <Attribution
+          translation={v.verse.translation}
+          licenseHref={v.locale === 'pt-BR' ? v.copy.licenseHref : undefined}
+        />
       </div>
       <div className="vw-foot">
         <button type="button" className="vw-btn" data-variant="primary" onClick={v.share}>

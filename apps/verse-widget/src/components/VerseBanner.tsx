@@ -1,3 +1,4 @@
+import Attribution from './Attribution';
 import { splitReference, useVerseView, type WidgetProps } from '../hooks/useVerseView';
 
 export default function VerseBanner(props: WidgetProps) {
@@ -13,6 +14,11 @@ export default function VerseBanner(props: WidgetProps) {
       <span className="vw-ref">
         {book} <em>{numbers}</em>
       </span>
+      <Attribution
+        className="vw-translation vw-banner-translation"
+        translation={v.verse.translation}
+        licenseHref={v.locale === 'pt-BR' ? v.copy.licenseHref : undefined}
+      />
       <span className="vw-status" role="status">
         {v.statusText}
       </span>

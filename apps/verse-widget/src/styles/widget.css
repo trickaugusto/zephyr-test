@@ -175,6 +175,10 @@
   font-size: 14px;
   white-space: nowrap;
 }
+.vw-banner .vw-banner-translation {
+  margin-top: 0;
+  white-space: nowrap;
+}
 
 /* Standalone page only. */
 .vw-page {
