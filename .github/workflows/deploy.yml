@@ -20,8 +20,8 @@ jobs:
       widget: ${{ github.event_name == 'workflow_dispatch' || steps.filter.outputs.widget }}
       portal: ${{ github.event_name == 'workflow_dispatch' || steps.filter.outputs.portal }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
+      - uses: actions/checkout@v7
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |
@@ -45,11 +45,11 @@ jobs:
       ZE_CI_TOKEN: ${{ secrets.ZEPHYR_CI_TOKEN }}
       ZE_FAIL_BUILD: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: pnpm
@@ -67,11 +67,11 @@ jobs:
       ZE_CI_TOKEN: ${{ secrets.ZEPHYR_CI_TOKEN }}
       ZE_FAIL_BUILD: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: pnpm
