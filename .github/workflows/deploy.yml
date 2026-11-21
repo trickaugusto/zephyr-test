@@ -54,6 +54,7 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter=verse-widget test
       - run: pnpm build:widget
 
   portal:
@@ -76,4 +77,5 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter=portal test
       - run: pnpm build:portal
