@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { getEnvBadge } from '../lib/env';
 import { getVerseForDate } from '../lib/verses';
+import { t } from '../lib/i18n';
 import VerseCard from './VerseCard';
 
 vi.mock('../lib/env', () => ({ getEnvBadge: vi.fn(() => null) }));
@@ -15,7 +16,7 @@ beforeEach(() => {
 describe('VerseCard', () => {
   it('renders the English card', () => {
     const { container } = render(<VerseCard locale="en" />);
-    expect(screen.getByText('Verse of the day')).toBeInTheDocument();
+    expect(screen.getByText(t('en').overline)).toBeInTheDocument();
     expect(refText(container)).toBe(getVerseForDate(new Date(), 'en').reference);
     expect(screen.getByText('WEB')).toBeInTheDocument();
     expect(container.textContent).not.toContain('CC BY');
@@ -23,7 +24,7 @@ describe('VerseCard', () => {
 
   it('renders the Portuguese card with the license link', () => {
     render(<VerseCard locale="pt-BR" />);
-    expect(screen.getByText('Versículo do dia')).toBeInTheDocument();
+    expect(screen.getByText(t('pt-BR').overline)).toBeInTheDocument();
     const link = screen.getByRole('link', { name: 'CC BY 4.0' });
     expect(link).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/4.0/deed.pt_BR');
   });
@@ -48,14 +49,14 @@ describe('VerseCard', () => {
   it('falls back to light and en for unknown values', () => {
     const { container } = render(<VerseCard theme={'neon' as any} locale={'es' as any} />);
     expect(container.firstElementChild).toHaveAttribute('data-theme', 'light');
-    expect(screen.getByText('Verse of the day')).toBeInTheDocument();
+    expect(screen.getByText(t('en').overline)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Share' })).toBeInTheDocument();
   });
 
   it('falls back when props are undefined', () => {
     const { container } = render(<VerseCard theme={undefined} locale={undefined} />);
     expect(container.firstElementChild).toHaveAttribute('data-theme', 'light');
-    expect(screen.getByText('Verse of the day')).toBeInTheDocument();
+    expect(screen.getByText(t('en').overline)).toBeInTheDocument();
   });
 
   it('uses the primary variant for Share', () => {

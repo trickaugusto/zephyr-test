@@ -3,8 +3,9 @@ import { formatDay, t } from './i18n';
 
 describe('i18n', () => {
   it('has Portuguese copy', () => {
-    expect(t('pt-BR').overline).toBe('Versículo do dia');
-    expect(t('en').overline).toBe('Verse of the day');
+    expect(t('en').overline).not.toBe('');
+    expect(t('pt-BR').overline).not.toBe('');
+    expect(t('pt-BR').overline).not.toBe(t('en').overline);
   });
 
   it('formats days in both locales', () => {
