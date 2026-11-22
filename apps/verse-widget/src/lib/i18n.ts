@@ -13,7 +13,7 @@ interface Copy {
 
 const COPY: Record<Locale, Copy> = {
   en: {
-    overline: `Today's verse`,
+    overline: 'Verse of the day',
     share: 'Share',
     copied: 'Copied',
     copyFailed: "Couldn't copy",
