@@ -15,7 +15,7 @@ beforeEach(() => {
 describe('VerseCard', () => {
   it('renders the English card', () => {
     const { container } = render(<VerseCard locale="en" />);
-    expect(screen.getByText(`Today's verse`)).toBeInTheDocument();
+    expect(screen.getByText('Verse of the day')).toBeInTheDocument();
     expect(refText(container)).toBe(getVerseForDate(new Date(), 'en').reference);
     expect(screen.getByText('WEB')).toBeInTheDocument();
     expect(container.textContent).not.toContain('CC BY');
@@ -48,14 +48,14 @@ describe('VerseCard', () => {
   it('falls back to light and en for unknown values', () => {
     const { container } = render(<VerseCard theme={'neon' as any} locale={'es' as any} />);
     expect(container.firstElementChild).toHaveAttribute('data-theme', 'light');
-    expect(screen.getByText(`Today's verse`)).toBeInTheDocument();
+    expect(screen.getByText('Verse of the day')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Share' })).toBeInTheDocument();
   });
 
   it('falls back when props are undefined', () => {
     const { container } = render(<VerseCard theme={undefined} locale={undefined} />);
     expect(container.firstElementChild).toHaveAttribute('data-theme', 'light');
-    expect(screen.getByText(`Today's verse`)).toBeInTheDocument();
+    expect(screen.getByText('Verse of the day')).toBeInTheDocument();
   });
 
   it('uses the primary variant for Share', () => {
